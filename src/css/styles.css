@@ -209,16 +209,6 @@ body {
     }
 }
 
-@media (max-width: 480px) {
-    .nav-links {
-        flex-direction: column;
-    }
-
-    .navbar {
-        padding: 5px 0;
-    }
-}
-
 /* Hamburger Menu */
 .hamburger {
     display: none;
