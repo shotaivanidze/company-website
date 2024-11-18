@@ -64,9 +64,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
          if (menuOverlay.classList.contains('active')) {
             document.body.style.overflow = 'hidden';
+            menuOverlay.style.overflowY = 'auto'; 
+            
             menuOverlay.style.visibility = 'visible';
         } else {
-            document.body.style.overflow = ''; // Re-enable scrolling
+            document.body.style.overflow = '';
+            menuOverlay.style.overflowY = '';
+
             setTimeout(() => {
                 menuOverlay.style.visibility = 'hidden';
             }, 300);
