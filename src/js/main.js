@@ -40,34 +40,36 @@ function handleNavbarEvent(direction) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+    // Smooth scrolldown to last location
     const lastScrollPosition = window.scrollY;
-    console.log('ez')
-    // Start at the top of the page
+
     setTimeout(() => {
         window.scrollTo({ top: 0, left: 0, behavior: "instant" });
     }, 3);
 
-    // Scroll to the last scroll position
     setTimeout(() => {
         window.scrollTo({
             top: lastScrollPosition,
-            behavior: 'smooth' // Uses CSS smooth scrolling
+            behavior: 'smooth'
         });
-    }, 100); // Slight delay to ensure the page is rendered
+    }, 20);
 
+    // Hamburger menu
     let hamburger = document.getElementById('hamburger');
     let menuOverlay = document.getElementById('menu-overlay');
-    console.log(hamburger)
-    // Toggle Menu
+    
     hamburger.addEventListener('click', () => {
         hamburger.classList.toggle('active');
         menuOverlay.classList.toggle('active');
 
-        // Disable scrolling when the menu is open
-        if (menuOverlay.classList.contains('active')) {
-            document.body.style.overflow = 'hidden'; // Disable scrolling
+         if (menuOverlay.classList.contains('active')) {
+            document.body.style.overflow = 'hidden';
+            menuOverlay.style.visibility = 'visible';
         } else {
             document.body.style.overflow = ''; // Re-enable scrolling
+            setTimeout(() => {
+                menuOverlay.style.visibility = 'hidden';
+            }, 300);
         }
     });
 
