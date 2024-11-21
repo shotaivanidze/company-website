@@ -45,14 +45,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     setTimeout(() => {
         window.scrollTo({ top: 0, left: 0, behavior: "instant" });
-    }, 3);
+    }, 10);
 
     setTimeout(() => {
         window.scrollTo({
             top: lastScrollPosition,
             behavior: 'smooth'
         });
-    }, 20);
+    }, 30);
 
     // Hamburger menu
     let hamburger = document.getElementById('hamburger');
@@ -77,4 +77,14 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    const arrowUp = document.querySelector('.footer-arrow-up a');
+
+    arrowUp.addEventListener('click', (event) => {
+        event.preventDefault();
+
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
 });

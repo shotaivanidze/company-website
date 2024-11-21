@@ -75,6 +75,11 @@ body {
     opacity: 1;
 }
 
+.navbar-right {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Space between Contact Us and Hamburger */
+}
 
 .logo {
     width: 100px;
@@ -126,6 +131,83 @@ body {
     border-radius: 8px;
     transition: background-color 0.3s;
 }
+
+.contact-us-item {
+    font-family: AkrobatRegular;
+    text-decoration: none;
+    padding: 8px 20px;
+    background-color: white; /* Initial background color */
+    color: black;
+    border: 1px solid black;
+    border-radius: 18px;
+    font-weight: normal;
+    position: relative; /* Ensure pseudo-element is positioned relative to the button */
+    overflow: hidden; /* Hide overflow for smooth effect */
+    transition: color 0.3s, transform 0.2s; /* Smooth color and scale transition */
+    z-index: 1; /* Ensure text stays above pseudo-element */
+}
+
+.contact-us-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black; /* Hover background color */
+    z-index: -1; /* Ensure it stays behind the text */
+    clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 100%); /* Start hidden at the bottom */
+}
+
+.contact-us-item:hover::before {
+    animation: smoothWaveFill 0.2s cubic-bezier(0.4, 0.0, 0.2, 1) forwards; /* Use smoother easing */
+}
+
+.contact-us-item:hover {
+    color: white; /* Change text color on hover */
+    transform: scale(1.05); /* Slight scale effect */
+}
+
+/* Keyframes with finer steps */
+@keyframes smoothWaveFill {
+    0% {
+        clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 100%); /* Hidden */
+    }
+    10% {
+        clip-path: polygon(0 90%, 50% 95%, 100% 90%, 100% 100%, 0 100%); /* Small wave at bottom */
+    }
+    20% {
+        clip-path: polygon(0 80%, 50% 85%, 100% 80%, 100% 100%, 0 100%);
+    }
+    30% {
+        clip-path: polygon(0 70%, 50% 75%, 100% 70%, 100% 100%, 0 100%);
+    }
+    40% {
+        clip-path: polygon(0 60%, 50% 65%, 100% 60%, 100% 100%, 0 100%);
+    }
+    50% {
+        clip-path: polygon(0 50%, 50% 55%, 100% 50%, 100% 100%, 0 100%);
+    }
+    60% {
+        clip-path: polygon(0 40%, 50% 45%, 100% 40%, 100% 100%, 0 100%);
+    }
+    70% {
+        clip-path: polygon(0 30%, 50% 35%, 100% 30%, 100% 100%, 0 100%);
+    }
+    80% {
+        clip-path: polygon(0 20%, 50% 25%, 100% 20%, 100% 100%, 0 100%);
+    }
+    90% {
+        clip-path: polygon(0 10%, 50% 15%, 100% 10%, 100% 100%, 0 100%);
+    }
+    100% {
+        clip-path: polygon(0 0%, 100% 0%, 100% 100%, 0 100%); /* Fully filled */
+    }
+}
+
+
+
+
 
 .container {
     max-width: 90%;
@@ -291,4 +373,64 @@ body {
     .hamburger {
         display: flex;
     }
+
+    .contact-us-item {
+        display: inline-block; /* Ensure Contact Us is visible */
+    }
+
+    .navbar-right {
+        justify-content: flex-end; /* Align Contact Us and Hamburger to the right */
+        gap: 30px; /* Keep gap between items */
+    }
+}
+
+.footer {
+    width: 100%;
+    height: 500px;
+    border-top: 1px solid gray;
+}
+
+.footer-links {
+    text-decoration: none;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin: 2%;    
+}
+
+.footer-links a {
+    font-size: 18px;
+    text-decoration: none;
+    color: black;
+    transition: 200ms;
+}
+
+.footer-links a:hover {
+    text-decoration: none;
+    color: gray;
+    transition: 200ms;
+}
+
+.footer-arrow-up {
+    margin-left: 50%;
+}
+
+.arrow-up-svg {
+    transition: 100ms;
+}
+
+.arrow-up-svg:hover {
+    fill: gray;
+    scale: 130%;
+    transition: 100ms;
+}
+
+.copyright-items {
+    text-decoration: none;
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    font-size: 16px;
 }
